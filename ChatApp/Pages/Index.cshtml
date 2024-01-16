@@ -1,0 +1,70 @@
+﻿@page
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat App</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <style>
+        .signalr-chat-body {
+            height: 350px;
+            overflow-y: auto;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .card-header,
+        .card-footer,
+        #loginButton {
+            background-color: #2b2569;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div id="chat" class="mx-auto my-5 container">
+        <div class="card text-black bg-light">
+            <div id="chatHeader" class="card-header clearfix text-white">
+                <div class="float-left">
+                    <h1 id="chatUsername" class="h4 m-0">Chat Room</h1>
+                </div>
+                <div class="float-right"><span id="onlineStatus" class="d-none">4 user online</span></div>
+            </div>
+            <div id="chatForm" class="row mx-auto py-5 my-5">
+                <div class="col-md-8">
+                    <input id="usernameInput" type="text" class="form-control form-control-lg" autofocus="autofocus"
+                           placeholder="Username" />
+                </div>
+                <div class="col py-1">
+                    <button id="loginButton" type="button"
+                            class="btn btn-light btn-block btn-md mb-2 text-white">
+                        Login
+                    </button>
+                </div>
+            </div>
+            <div id="chatBody" class="card-body bg-white text-dark p-2 d-none signalr-chat-body">
+                <ul id="messageList" class="list-unstyled"></ul>
+            </div>
+            <div id="chatFooter" class="card-footer row no-gutters p-3 d-none">
+                <div class="col-md-11">
+                    <textarea id="textareaMessage" class="form-control form-control-sm" rows="2"></textarea>
+                </div>
+                <div class="col pt-2 p-lg-2">
+                    <button id="sendButton" class="btn btn-light btn-block btn-sm">SEND</button>
+                </div>
+            </div>
+
+            <span id="statusSpan" class="text-center mb-2"></span>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
